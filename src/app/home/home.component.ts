@@ -12,7 +12,30 @@ export class HomeComponent implements OnInit {
   user:User;
   repo:Repo;
 
-  constructor() { }
+  constructor(public gitSearchService:GitSearchService) {}
+
+  getUsers(userName){ 
+    this.gitSearchService.getUsers(userName).then(
+      (success)=>{
+        this.user= this.gitSearchService.user;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+    this.gitSearchService.getRepo(userName).then(
+      (success)=>{
+        this.repo= this.gitSearchService.repo;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+  }
+
+
+
+
 
   ngOnInit(): void {
   }
