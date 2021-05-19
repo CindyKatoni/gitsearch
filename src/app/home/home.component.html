@@ -3,12 +3,15 @@
         <h1 class="display-4">Welcome to Github Search</h1>
         <hr>
         <p>Use the search form below</p>
+        <div>
+
+        </div>
 
     </div>
 </div>
 <div class="container">
     <h3>User Profile</h3>
-    <div class="card border-dark mb-3" style="max-width: 1000px;">
+    <div class="card mb-3" style="max-width: 1000px;">
         <div class="row g-0">
             <div class="col-md-3">
                 <img src="{{ user.avatar_url }}">
@@ -26,24 +29,19 @@
     </div>
 
     <h3>User Repositories</h3>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+    <div class="card text-center">
+        <div *ngFor="let repos of repo">
+            <div class="card-header">
+                {{ repos.name }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{ repos.description }}</p>
+                <a href="{{ repos.html_url }}" class="btn btn-primary">Visit Project</a>
+            </div>
+            <div class="card-footer text-muted">
+                2 days ago
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
