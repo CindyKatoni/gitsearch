@@ -1,4 +1,4 @@
-<form class="form-inline">
-    <input type="text" class="form-control form-control-sm mr-3 w-75" id="inlineFormInputName2" placeholder="Username">
-    <button type="submit" class="btn btn-primary ">Submit</button>
+<form class="form-inline" #name=ngForm>
+    <input type="text" class="form-control form-control-sm mr-3 w-75" id="inlineFormInputName2" placeholder="Username" name="userName" [(ngModel)]="userName">
+    <button type="submit" class="btn btn-primary " name="submit" (click)="search()">Submit</button>
 </form>
