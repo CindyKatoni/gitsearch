@@ -4,7 +4,7 @@
         <hr>
         <p>Use the search form below</p>
         <div>
-
+            <app-search (searchEmitter)="getUsers($event)"></app-search>
         </div>
 
     </div>
@@ -13,10 +13,10 @@
     <h3>User Profile</h3>
     <div class="card mb-3" style="max-width: 1000px;">
         <div class="row g-0">
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <img src="{{ user.avatar_url }}">
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="card-body">
                     <h5 class="card-title">{{user.login}}</h5>
                     <p class="card-text">Repositories: {{user.public_repos}}</p>
