@@ -31,7 +31,6 @@ export class GitSearchService {
       following:string,
       repos_url:string,
     }
-    //use promises for HTTP response
     let promise = new Promise((resolve, reject) => {
       let apiURL = 'https://api.github.com/users/' + userName + '?access_token=' + environment.apiKey;
       this.http.get<ApiResponse>(apiURL)
@@ -48,7 +47,32 @@ export class GitSearchService {
     });
     return promise;
   }
-
+    //Get Repo
+    getRepo(userName:string){
+      interface ApiResponse{
+        html_url:string,
+        name:string,
+        repos_url:string,
+        description:string,
+      }
+  
+      let promise = new Promise((resolve, reject) => {
+        let apiURL = 'https://api.github.com/users/' + userName + '/repos?access_token=' + environment.apiKey;
+        this.http.get<ApiResponse>(apiURL)
+          .toPromise()
+          .then(
+            res => { // Success
+              this.repo = res;
+              resolve();
+            },
+            (error)=>{
+              reject();
+            }
+          );
+      });
+      return promise;
+    }
+  
 
 
 
