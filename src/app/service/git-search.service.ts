@@ -5,8 +5,8 @@ import { Repo } from '../repo';
 import { environment } from '../../environments/environment';
 import { promise } from 'protractor';
 import { error } from 'console';
-import { resolve } from 'dns';
-import { rejects } from 'assert';
+// import { resolve } from 'dns';
+// import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
